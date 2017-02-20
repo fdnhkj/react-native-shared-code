@@ -1,0 +1,15 @@
+{
+  "name": "react-native-shared-code",
+  "version": "0.0.1",
+  "description": "Highlights the percentage of shared code across platforms.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-traverse": "^6.23.1",
+    "babylon": "^6.15.0"
+  }
+}
