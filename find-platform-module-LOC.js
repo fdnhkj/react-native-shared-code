@@ -2,7 +2,7 @@ const fs = require('fs');
 const babylon = require('babylon');
 const traverse = require('babel-traverse').default;
 
-let platformSpecificLocTotal = 0;
+let platformModuleLOCTotal = 0;
 process.argv.slice(2).forEach((filePath) => {
   const data = fs.readFileSync(filePath, {encoding: 'utf8'});
   traverse(
@@ -14,12 +14,12 @@ process.argv.slice(2).forEach((filePath) => {
             if(specifier.node.imported) {
               const importedIdentifierName = specifier.node.imported.name;
               if(importedIdentifierName === 'Platform') {
-                const platformSpecificLoc = new Set();
+                const platformModuleLOC = new Set();
                 const {referencePaths} = path.scope.getBinding(importedIdentifierName);
                 referencePaths.forEach(function(referencePath) {
-                  platformSpecificLoc.add(referencePath.node.loc.start.line);
+                  platformModuleLOC.add(referencePath.node.loc.start.line);
                 });
-                platformSpecificLocTotal += platformSpecificLoc.size;
+                platformModuleLOCTotal += platformModuleLOC.size;
               }
             }
           });
@@ -28,4 +28,4 @@ process.argv.slice(2).forEach((filePath) => {
     }
   );
 });
-console.log(platformSpecificLocTotal);
+console.log(platformModuleLOCTotal);
