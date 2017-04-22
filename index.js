@@ -16,7 +16,8 @@ function getBundleDependencies(rnDirectoryPath, platform) {
         cwd: rnDirectoryPath,
         shell: '/bin/bash'
     })
-    .toString();
+    .toString()
+    .replace(/ /g, '\\ ');
 }
 
 function filterDependencies(dependencies) {
