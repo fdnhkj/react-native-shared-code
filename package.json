@@ -1,6 +1,6 @@
 {
   "name": "react-native-shared-code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Calculates the percentage of shared code across platforms and the percentage of platform specific code in your React Native project.",
   "author": "Fidan Hakaj <fidan188@gmail.com> (https://github.com/fdnhkj)",
   "main": "index.js",
